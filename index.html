@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/vite.svg"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <link
+      rel="stylesheet"
+      href="/src/style.scss"
+    />
+    <title>Mobile</title>
+  </head>
+  <body>
+    <div class="cart">
+      <div class="cart__header">
+        <h1 class="cart__title">Корзина</h1>
+        <img src="/cross.svg" class="cart__close" id="burgerOpen"></img>
+      </div>
+      <div class="burger" id="burgerMenu">
+        <div class="burger__container">
+          <div class="burger__header">
+            <img src="/cross.svg" class="burger__close" id="burgerClose" />
+            <h1 class="burger__logo">THE VERY THING</h1>
+            <img src="/heart.svg" class="burger__fav" />
+          </div>
+
+          <div class="burger__search">
+            <img src="/search.svg" class="burger__search-icon" />
+          </div>
+
+          <nav class="burger__nav">
+            <ul class="burger__list">
+              <li class="burger__item open">
+                <div class="burger__row">
+                  <p>НОВИНКИ</p>
+                  <img src="/arrow.svg" class="burger__arrow" />
+                </div>
+                <div class="burger__dropdown">
+                  <a href="#">Новая коллекция</a>
+                  <a href="#">Популярное</a>
+                  <a href="#">Сезонные хиты</a>
+                </div>
+              </li>
+              <li class="burger__item">
+                <div class="burger__row">
+                  <p>КАТАЛОГ</p>
+                  <img src="/arrow.svg" class="burger__arrow" />
+                </div>
+                <div class="burger__dropdown">
+                  <a href="#">Одежда</a>
+                  <a href="#">Обувь</a>
+                  <a href="#">Аксессуары</a>
+                </div>
+              </li>
+              <li class="burger__item">
+                <p>ПРОФИЛЬ</p>
+              </li>
+              <li class="burger__item">
+                <p>ИЗБРАННОЕ</p>
+              </li>
+              <li class="burger__item">
+                <p>КОРЗИНА</p>
+              </li>
+              <li class="burger__item">
+                <p>СКИДКИ</p>
+              </li>
+              <li class="burger__item">
+                <p>МАГАЗИНЫ</p>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+
+      <div class="cart__items">
+        <div class="cart-item">
+          <img
+            class="cart-item__image"
+            src="/prod1.svg"
+          />
+          <div class="cart-item__info">
+            <p class="cart-item__name">Серьги FIUMICINO на английском замке</p>
+            <p class="cart-item__price">12 450 ₽</p>
+            <div class="cart-item__counter">
+              <img
+                src="/plus 2.svg"
+                class="counter__btn"
+                data-action="minus"
+                data-counter="1"
+                alt="minus-btn"
+              />
+              <span class="counter__value" data-counter="1">1</span>
+              <img
+                src="/plus 1.svg"
+                class="counter__btn"
+                data-action="plus"
+                data-counter="1"
+                alt="plus-btn"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="cart-item">
+          <img
+            class="cart-item__image"
+            src="/prod2.svg"
+          />
+          <div class="cart-item__info">
+            <p class="cart-item__name">Длинные серьги GELA</p>
+            <p class="cart-item__price">12 450 ₽</p>
+            <div class="cart-item__counter">
+              <img
+                src="/plus 2.svg"
+                class="counter__btn"
+                data-action="minus"
+                data-counter="2"
+                alt="minus-btn"
+              />
+              <span class="counter__value" data-counter="2">1</span>
+              <img
+                src="/plus 1.svg"
+                class="counter__btn"
+                data-action="plus"
+                data-counter="2"
+                alt="plus-btn"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="cart-item">
+          <img
+            class="cart-item__image"
+            src="/prod3.svg"
+            alt="Серьги FIUMICINO"
+          />
+          <div class="cart-item__info">
+            <p class="cart-item__name">Серьги-кольца LICATA</p>
+            <p class="cart-item__price">12 450 ₽</p>
+            <div class="cart-item__counter">
+              <img
+                src="/plus 2.svg"
+                class="counter__btn"
+                data-action="minus"
+                data-counter="3"
+                alt="minus-btn"
+              />
+              <span class="counter__value" data-counter="3">1</span>
+              <img
+                src="/plus 1.svg"
+                class="counter__btn"
+                data-action="plus"
+                data-counter="3"
+                alt="plus-btn"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Повторяй блок .cart-item для других товаров -->
+      </div>
+
+      <div class="cart__summary">
+        <p class="cart__total">Итого: <span id="thousand">37</span> <span id="unit">350 </span> ₽</p>
+        <button class="cart__pay-btn">Оплатить</button>
+      </div>
+
+      <div class="recommend">
+        <h2 class="recommend__title">Еще может понравиться</h2>
+        <div class="recommend__grid">
+          <div class="recommend-item">
+            <img
+              class="recommend-item__image"
+              src="/like2.svg"
+              alt="Серьги-монеты"
+            />
+            <div class="recommend-item__buy-info">
+              <p class="recommend-item__price">9 070 ₽</p>
+              <p class="recommend-item__name">Серьги-монеты GENOVA</p>
+            </div>
+            <img src="/Bag_alt_light.svg" class="recommend-item__buy-button" alt="buy-button">
+          </div>
+          <div class="recommend-item">
+            <img
+              class="recommend-item__image"
+              src="/like3.svg"
+              alt="Серьги-монеты"
+            />
+            <div class="recommend-item__buy-info">
+              <p class="recommend-item__price">13 900 ₽</p>
+              <p class="recommend-item__name">Подвеска с барочным жемчугом</p>
+            </div>
+            <img src="/Bag_alt_light.svg" class="recommend-item__buy-button" alt="buy-button">
+          </div>
+          <div class="recommend-item">
+            <img
+              class="recommend-item__image"
+              src="/like4.svg"
+              alt="Серьги-монеты"
+            />
+            <div class="recommend-item__buy-info">
+              <p class="recommend-item__price">10 700 ₽</p>
+              <p class="recommend-item__name">Кольцо-змейка с белым фианитом</p>
+            </div>
+            <img src="/Bag_alt_light.svg" class="recommend-item__buy-button" alt="buy-button">
+          </div>
+          <div class="recommend-item">
+            <img
+              class="recommend-item__image"
+              src="/like1.svg"
+              alt="Серьги-монеты"
+            />
+            <div class="recommend-item__buy-info">
+              <p class="recommend-item__price">10 700 ₽</p>
+              <p class="recommend-item__name">Кольцо-змейка с белым фианитом</p>
+            </div>
+            <img src="/Bag_alt_light.svg" class="recommend-item__buy-button" alt="buy-button">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      type="module"
+      src="/src/main.ts"
+    ></script>
+  </body>
+</html>
