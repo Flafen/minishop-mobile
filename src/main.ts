@@ -23,30 +23,51 @@ document.querySelectorAll('.burger__item').forEach((item) => {
 
 //counter
 document.addEventListener('click', function (e) {
-  if (e.target?.closest('.counter__btn')) {
-    const btn = e.target;
-    const counterId = btn.dataset.counter;
-    const counterValue = document.querySelector(
-      `.counter__value[data-counter="${counterId}"]`
-    );
-    let currentValue = parseInt(counterValue.textContent);
+  const target = e.target as HTMLElement | null;
+  if (!target) return;
 
-    if (btn.dataset.action === 'plus') {
-      counterValue.textContent = currentValue + 1;
-    }
+  const btn = target.closest('.counter__btn') as HTMLElement | null;
+  if (!btn) return;
 
-    if (btn.dataset.action === 'minus') {
-      if (currentValue > 1) {
-        counterValue.textContent = currentValue - 1;
-      }
-    }
+  const counterId = btn.dataset.counter;
+  const action = btn.dataset.action;
+
+  if (!counterId || !action) return;
+
+  const counterValueEl = document.querySelector(
+    `.counter__value[data-counter="${counterId}"]`
+  ) as HTMLElement | null;
+
+  if (!counterValueEl) return;
+
+  const currentValue = parseInt(counterValueEl.textContent || '1', 10);
+
+  if (action === 'plus') {
+    counterValueEl.textContent = (currentValue + 1).toString();
   }
-  const items = document.querySelectorAll('.counter__value');
-  let sum = [...items].reduce((accum, item) => {
-    return accum + +(item.textContent ?? 0);
+
+  if (action === 'minus' && currentValue > 1) {
+    counterValueEl.textContent = (currentValue - 1).toString();
+  }
+
+  const items = document.querySelectorAll<HTMLElement>('.counter__value');
+  let sum = Array.from(items).reduce((accum, item) => {
+    const count = parseInt(item.textContent || '0', 10);
+    return accum + count;
   }, 0);
+
   sum *= 12450;
-  console.log(sum);
-  document.getElementById('thousand').textContent = Math.floor(sum / 1000);
-  document.getElementById('unit').textContent = sum % 1000;
+
+  const thousandEl = document.getElementById('thousand');
+  const unitEl = document.getElementById('unit');
+
+  if (thousandEl) {
+    thousandEl.textContent = Math.floor(sum / 1000).toString();
+  }
+
+  if (unitEl) {
+    const unit = sum % 1000;
+    unitEl.textContent =
+      unit < 100 ? unit.toString().padStart(3, '0') : unit.toString();
+  }
 });
